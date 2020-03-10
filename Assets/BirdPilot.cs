@@ -69,7 +69,7 @@ public class BirdPilot : MonoBehaviour
 
         if (terrainHeight > transform.position.y)
         {
-            transform.position = new Vector3(transform.position.x, terrainHeight, transform.position.z);
+            r.position = new Vector3(transform.position.x, terrainHeight, transform.position.z);
         }
 
     }
