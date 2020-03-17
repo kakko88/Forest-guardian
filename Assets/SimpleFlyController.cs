@@ -35,7 +35,6 @@
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            
             press = true;
         }
         thrust -= 10f * Time.deltaTime;
