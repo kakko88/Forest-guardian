@@ -1,88 +1,91 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody))]
 
 public class BirdPilot : MonoBehaviour
 {
-    public Rigidbody r;
+    
 
-    //public float rollRate = 70;
-    // public float pitchRate = 50;
+    private float damage = 20f;
 
+    public float thrust = 10f;
+    public Vector3 turnTorque = new Vector3(90f, 25f, 45f);
+    public float forceMult = 1000f;
+    public float downthrust = 0;
+    private float pitch = 0f;
+    private float yaw = 0f;
+    private float roll = 0f;
+    private bool press = true;
+    public float Pitch { set { pitch = Mathf.Clamp(value, -1f, 1f); } get { return pitch; } }
+    public float Yaw { set { yaw = Mathf.Clamp(value, -1f, 1f); } get { return yaw; } }
+    public float Roll { set { roll = Mathf.Clamp(value, -1f, 1f); } get { return roll; } }
 
- 
+    private Rigidbody rigid;
 
-
-    private float topSpeed;
-    private float acceleration;
-    public float speed;
-
-    public float thrust = 0;
-
-    public float gravityConstant = 9;
-
-    public Vector3 com = Vector3.zero;
-
-    public FlappyAnimation _FlappyAnimation;
-
-    void Start()
+    private void Awake()
     {
-        r.centerOfMass = com; // set center of mass
-
-
-        topSpeed = 200;
-        acceleration = 0;
-
+        rigid = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
-
-       //Vector3 moveCamTo = transform.position - transform.forward * 10.0f + Vector3.up * 5.0f;
-       //float bias = 0.9f;
-       //Camera.main.transform.position = Camera.main.transform.position * bias + moveCamTo * (1.0f - bias);
-       //Camera.main.transform.LookAt(transform.position + transform.forward * 30.0f);
-
-        speed = r.velocity.magnitude; // get speed
-
-        speed -= transform.forward.y * Time.deltaTime * speed;
-
-
-
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            thrust = 100; // if space is spressed, then accelerate
-            acceleration += 10;
             GetComponent<Animation>().Play();
-        }
-        else
-        {
-            thrust = -1f; // if not, dont accelerate
-            if (speed == 0)
+            if (press == true)
             {
-                thrust = 0f;
+                thrust += 25f;
+                press = false;
             }
         }
-        transform.Rotate(Input.GetAxis("Vertical") * 2.0f, 0.0f, -Input.GetAxis("Horizontal") * 2.0f);
-        acceleration = Mathf.Clamp(acceleration + (acceleration * thrust * Time.deltaTime), 0, topSpeed); // make sure not to go faster than top speed
-        float terrainHeight = Terrain.activeTerrain.SampleHeight(transform.position);
-
-        if (terrainHeight > transform.position.y)
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
-            transform.position = new Vector3(transform.position.x, terrainHeight, transform.position.z);
+            press = true;
+        }
+        if (thrust > 10)
+        {
+            thrust -= 15f * Time.deltaTime;
+        }
+        else { thrust -= 15f * Time.deltaTime; }
+
+        thrust = Mathf.Clamp(thrust, 2f, 100f);
+        downthrust = thrust.Remap(2f, 100f, 20f, 0f);
+        if (transform.localPosition.y <= 2.5f)
+        {
+            downthrust = 0f;
+        }
+        roll = Input.GetAxis("Horizontal");
+
+        pitch = Input.GetAxis("Vertical");
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        damage = thrust;
+        other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+    }
+
+    private void FixedUpdate()
+    {
+        rigid.AddRelativeForce(Vector3.forward * thrust * forceMult, ForceMode.Force);
+        rigid.AddForce(Vector3.down * downthrust * forceMult, ForceMode.Force);
+        rigid.AddRelativeTorque(new Vector3(turnTorque.x * pitch, turnTorque.y * yaw, -turnTorque.z * roll) * forceMult, ForceMode.Force);
+        if (rigid.velocity.magnitude > 200)
+        {
+            rigid.velocity = rigid.velocity.normalized * 200;
         }
 
     }
+}
 
-    void FixedUpdate()
+
+public static class ExtensionMethods
+{
+
+    public static float Remap(this float value, float from1, float to1, float from2, float to2)
     {
-        // r.AddRelativeTorque(Input.GetAxis("Vertical") * pitchRate * Time.fixedDeltaTime, 0, -Input.GetAxis("Horizontal") * rollRate * Time.fixedDeltaTime, ForceMode.Acceleration); // pitch and yaw
-
-        r.drag = 1 + (Mathf.Abs(thrust) / topSpeed); // some fancy physics to set a terminal velocity
-        r.AddRelativeForce(0, 0, acceleration, ForceMode.Acceleration); // the actual physics for acceleration 
-
-        r.AddForce(0, -gravityConstant, 0); // my own gravity (disable gravity on the rigidbody component
-        r.AddRelativeForce(0, Mathf.Clamp((speed / topSpeed) * gravityConstant * 2, 0, gravityConstant), 0); // add lift based on speed, unitl lift 
-                                                                                                             // is the same as downward force (about 1/4 of top speed)
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
+
 }

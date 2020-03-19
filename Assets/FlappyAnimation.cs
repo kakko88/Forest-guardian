@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class FlappyAnimation : MonoBehaviour
 {
-  public void Flappy()
+
+    private Animation anim;
+
+    public float animSpeed;
+    public string nameOfAnimation;
+
+    private void Start()
     {
-        GetComponent<Animation>().Play();
-        print("flap");
+        anim = GetComponent<Animation>();
+
+    }
+
+    private void Update()
+    {
+        anim[nameOfAnimation].speed = animSpeed;
     }
 }
