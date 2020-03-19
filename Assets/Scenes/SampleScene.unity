@@ -1074,6 +1074,7 @@ MonoBehaviour:
   thrust: 15
   turnTorque: {x: 11.25, y: 12.5, z: 22.5}
   forceMult: 1000
+  downThrust: 0
 --- !u!54 &1032382148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1090,6 +1091,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!75 &1032382149
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032382146}
+  m_Enabled: 0
+  m_Force: {x: 0, y: -10000, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!4 &1032382150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 044ab30ebe609094da20fc936dc56359,
@@ -1881,7 +1894,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 044ab30ebe609094da20fc936dc56359,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4863255
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 044ab30ebe609094da20fc936dc56359,
         type: 3}
@@ -1957,6 +1970,20 @@ GameObject:
   m_PrefabInstance: {fileID: 1762365657}
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &1762365659
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762365658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 3544989449648645972, guid: 044ab30ebe609094da20fc936dc56359, type: 3}
+--- !u!64 &1762365662
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
