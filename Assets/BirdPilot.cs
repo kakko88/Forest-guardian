@@ -50,7 +50,7 @@ public class BirdPilot : MonoBehaviour
 
         thrust = Mathf.Clamp(thrust, 2f, 100f);
         downthrust = thrust.Remap(2f, 100f, 20f, 0f);
-        if (transform.localPosition.y <= 2.5f)
+        if (transform.localPosition.y <= 215f)
         {
             downthrust = 0f;
         }
