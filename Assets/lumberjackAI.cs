@@ -13,7 +13,12 @@ public class lumberjackAI : MonoBehaviour
     //public GameObject tree4;
     //public GameObject HomeTree;
     //public GameObject LumberJack;
-    bool attack = false;
+    bool isPlaying = false;
+    float time = 0f;
+
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask treeLayers;
 
 
     
@@ -40,67 +45,31 @@ public class lumberjackAI : MonoBehaviour
         if (Vector3.Distance(transform.position, tree1.transform.position) < 200f)
         {
 
-            if (attack == false)
-            {
-                Attack();
-
-                attack = true;
-            }
-
-            attack = false;
-           
+            Attack();
         }
 
         if (Vector3.Distance(transform.position, tree2.transform.position) < 200f)
         {
-            if (attack == false)
-            {
-                Attack();
-
-                attack = true;
-            }
-
-            attack = false;
+            Attack();
 
         }
         
         if (Vector3.Distance(transform.position, tree3.transform.position) < 200f)
         {
-            if (attack == false)
-            {
-                Attack();
-
-                attack = true;
-            }
-
-            attack = false;
+            Attack();
 
         }
 
         if (Vector3.Distance(transform.position, tree4.transform.position) < 200f)
         {
-            if (attack == false)
-            {
-                Attack();
-
-                attack = true;
-            }
-
-            attack = false;
+            Attack();
 
         }
 
         if (Vector3.Distance(transform.position, HomeTree.transform.position) < 200f)
         {
-           if (attack == false)
-            {
-                Attack();
+            Attack();
 
-                attack = true;
-            }
-
-            attack = false;
-            
         }
         
 
@@ -158,8 +127,44 @@ public class lumberjackAI : MonoBehaviour
 
     void Attack()
     {
-       
-     animator.SetTrigger("Attack");
-      
+        if (isPlaying == false)
+        {
+            animator.SetTrigger("Attack");
+
+            Collider[] hitTrees = Physics.OverlapSphere(attackPoint.position, attackRange, treeLayers);
+
+            foreach (Collider tree in hitTrees)
+            {
+                Debug.Log("lumber hit" + tree.name);
+            }
+
+            isPlaying = true;
+        }
+
+        if (isPlaying == true)
+        {
+            time = time + Time.deltaTime;
+
+            if (time > 2.20f)
+            {
+                isPlaying = false;
+
+                time = 0f;
+
+            }
+        }
+
+        
     }
+
+     void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+        {
+            return;
+
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
 }
