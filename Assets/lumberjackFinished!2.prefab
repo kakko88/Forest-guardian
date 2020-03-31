@@ -1012,6 +1012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2668863700567864897}
   animator: {fileID: 1078896240291496487}
+  tree1: {fileID: 4751998098982979346, guid: 207c3601dc71abc40aa4715fbb489373, type: 3}
+  tree2: {fileID: 4133324455351888821, guid: c315a8eb0c1c256408c852161f386fe4, type: 3}
+  tree3: {fileID: 6894897947645657389, guid: 438dba6ea345830439e48ebaf7fe05c6, type: 3}
+  tree4: {fileID: 2658123153006561118, guid: b333cbdf1a4e5f742980c4ea8e0d2e1d, type: 3}
+  HomeTree: {fileID: 6842179101096776275, guid: fde903807ea56b9428d2a737e81fb8cd,
+    type: 3}
+  LumberJack: {fileID: 6208309338643504462}
 --- !u!114 &2668863700567864902
 MonoBehaviour:
   m_ObjectHideFlags: 0

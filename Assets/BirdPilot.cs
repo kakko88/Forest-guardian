@@ -58,6 +58,18 @@ public class BirdPilot : MonoBehaviour
 
         pitch = Input.GetAxis("Vertical");
 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            yaw = -1f;
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            yaw = 1f;
+        }
+        else
+        {
+            yaw = 0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
