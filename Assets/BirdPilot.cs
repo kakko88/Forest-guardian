@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(Rigidbody))]
 
-public class BirdPilot : MonoBehaviour
+public class BirdPilot : MonoBehaviour, IShopCustomer
 {
     
 
@@ -88,6 +88,11 @@ public class BirdPilot : MonoBehaviour
             rigid.velocity = rigid.velocity.normalized * 200;
         }
 
+    }
+
+    public void BoughtItem(Upgrades.ItemType itemType)
+    {
+        throw new System.NotImplementedException();
     }
 }
 

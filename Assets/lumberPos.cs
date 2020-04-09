@@ -10,11 +10,12 @@ public class lumberPos : MonoBehaviour
     public float timeBetweenWaves = 60f;
     private float countdown = 3f;
     public Text WaveCountdown;
-
     void Start()
     {
-        
+
     }
+
+
 
     void Update()
     {
@@ -22,6 +23,11 @@ public class lumberPos : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+
+        }
+        else
+        {
+  
         }
 
         countdown -= Time.deltaTime;
