@@ -31,6 +31,7 @@ public class lumberPos : MonoBehaviour
     IEnumerator SpawnWave()
     {
         numberOfEnemies++;
+        PlayerStats.Waves++;
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
