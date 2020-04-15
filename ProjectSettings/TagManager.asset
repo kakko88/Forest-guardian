@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [Tower, Home]
+  tags:
+  - Tower
+  - Home
   layers:
   - Default
   - TransparentFX
@@ -13,11 +15,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Tower1
+  - Tower2
+  - Tower3
+  - Tower4
+  - HomeTree
   - Minimap
   - 
   - 

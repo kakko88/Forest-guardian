@@ -7,7 +7,7 @@ public class lumberPos : MonoBehaviour
 {
     private int numberOfEnemies = 0;
     public GameObject prefab;
-    private float timeBetweenWaves = 10f;
+    //private float timeBetweenWaves = 10f;
     private float countdownShop = 5f;
     public GameObject fastPrefab;
     public GameObject bossPrefab;
