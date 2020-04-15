@@ -1433,7 +1433,7 @@ MonoBehaviour:
   HomeLayer:
     serializedVersion: 2
     m_Bits: 0
-  attackDMG: 5
+  attackDMG: 101
   target: {fileID: 0}
   towerTag: Tower
   tree1: {fileID: 0}
