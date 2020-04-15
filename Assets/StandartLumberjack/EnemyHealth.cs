@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -22,19 +22,18 @@ public class EnemyHealth : MonoBehaviour
         {
             return;
         }
-
         health -= amount;
-
         if (health <= 0)
         {
             health = 0;
             alive = false;
             gameObject.SetActive(false);
             Score.score += 10;
+        }
 
             healthBar.fillAmount = health / startHealth;
         }
-        
+
     }
     // Update is called once per frame
     void Update()
