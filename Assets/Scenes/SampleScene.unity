@@ -26153,6 +26153,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6894897947645657389, guid: 438dba6ea345830439e48ebaf7fe05c6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 7634939473983943486, guid: 438dba6ea345830439e48ebaf7fe05c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26208,6 +26213,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3210631338352883038, guid: 438dba6ea345830439e48ebaf7fe05c6,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438dba6ea345830439e48ebaf7fe05c6, type: 3}
 --- !u!1 &3270492603186622989
@@ -26242,6 +26252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842179101096776275, guid: fde903807ea56b9428d2a737e81fb8cd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 7543270427803476032, guid: fde903807ea56b9428d2a737e81fb8cd,
         type: 3}
@@ -26357,6 +26372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751998098982979346, guid: 207c3601dc71abc40aa4715fbb489373,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 8622463372532692225, guid: 207c3601dc71abc40aa4715fbb489373,
         type: 3}
@@ -26627,6 +26647,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4133324455351888821, guid: c315a8eb0c1c256408c852161f386fe4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 1083077681420556710, guid: c315a8eb0c1c256408c852161f386fe4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26778,6 +26803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658123153006561118, guid: b333cbdf1a4e5f742980c4ea8e0d2e1d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 1349062509048657229, guid: b333cbdf1a4e5f742980c4ea8e0d2e1d,
         type: 3}
