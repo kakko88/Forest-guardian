@@ -60,6 +60,11 @@ namespace MFlight.Demo
 
         private void Update()
         {
+            if (GameManager.GameIsOver)
+            {
+                this.enabled = false;
+                return;
+            }
             // When the player commands their own stick input, it should override what the
             // autopilot is trying to do.
             rollOverride = false;

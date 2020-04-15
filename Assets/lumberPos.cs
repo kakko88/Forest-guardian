@@ -9,10 +9,13 @@ public class lumberPos : MonoBehaviour
     public GameObject prefab;
     private float timeBetweenWaves = 10f;
     private float countdownShop = 5f;
+    public GameObject fastPrefab;
+    public GameObject bossPrefab;
+    public float timeBetweenWaves = 60f;
     private float countdown = 3f;
     public Text WaveCountdown;
 
-    public static bool startNextRound; 
+    public static bool startNextRound;
 
     void Start()
     {
@@ -33,7 +36,7 @@ public class lumberPos : MonoBehaviour
                 countdown = timeBetweenWaves;
                 ShowHideShop.showShop = false;
                 Debug.Log("SHOW FALSE");
-                startNextRound = false; 
+                startNextRound = false;
             }
 
         }
@@ -54,6 +57,7 @@ public class lumberPos : MonoBehaviour
     IEnumerator SpawnWave()
     {
         numberOfEnemies++;
+        PlayerStats.Waves++;
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
@@ -61,7 +65,23 @@ public class lumberPos : MonoBehaviour
             yield return new WaitForSeconds(10f);
         }
 
-        
+
+    }
+
+    void SpawnFastEnemy()
+    {
+        Vector3 center = transform.position;
+        Vector3 pos = RandomCircle(center, 1200.0f);
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+        Instantiate(fastPrefab, pos, rot);
+    }
+
+    void SpawnBossEnemy()
+    {
+        Vector3 center = transform.position;
+        Vector3 pos = RandomCircle(center, 1200.0f);
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+        Instantiate(bossPrefab, pos, rot);
     }
 
     void SpawnEnemy()
@@ -70,7 +90,7 @@ public class lumberPos : MonoBehaviour
         Vector3 pos = RandomCircle(center, 1200.0f);
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
         Instantiate(prefab, pos, rot);
-        
+
     }
 
     Vector3 RandomCircle(Vector3 center, float radius)

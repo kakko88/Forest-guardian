@@ -98,6 +98,12 @@ namespace MFlight
 
         private void Update()
         {
+            if (GameManager.GameIsOver)
+            {
+                this.enabled = false;
+                return;
+            }
+
             if (useFixed == false)
                 UpdateCameraPos();
 

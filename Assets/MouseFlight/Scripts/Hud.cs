@@ -31,6 +31,12 @@ namespace MFlight.Demo
 
         private void Update()
         {
+            if (GameManager.GameIsOver)
+            {
+                this.enabled = false;
+                return;
+            }
+
             if (mouseFlight == null || playerCam == null)
                 return;
 
