@@ -7,6 +7,8 @@ public class lumberPos : MonoBehaviour
 {
     private int numberOfEnemies = 0;
     public GameObject prefab;
+    public GameObject fastPrefab;
+    public GameObject bossPrefab;
     public float timeBetweenWaves = 60f;
     private float countdown = 3f;
     public Text WaveCountdown;
@@ -40,6 +42,22 @@ public class lumberPos : MonoBehaviour
         }
 
         
+    }
+
+    void SpawnFastEnemy()
+    {
+        Vector3 center = transform.position;
+        Vector3 pos = RandomCircle(center, 1200.0f);
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+        Instantiate(fastPrefab, pos, rot);
+    }
+
+    void SpawnBossEnemy()
+    {
+        Vector3 center = transform.position;
+        Vector3 pos = RandomCircle(center, 1200.0f);
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+        Instantiate(bossPrefab, pos, rot);
     }
 
     void SpawnEnemy()
