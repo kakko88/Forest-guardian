@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
         {
             return;
         }
-
+        health -= amount;
         if (health <= 0)
         {
             health = 0;
@@ -30,7 +30,6 @@ public class EnemyHealth : MonoBehaviour
             gameObject.SetActive(false);
             Score.score += 10;
         }
-        health -= amount;
 
         healthBar.fillAmount = health / startHealth;
     }

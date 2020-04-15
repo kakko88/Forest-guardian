@@ -7,12 +7,16 @@ public class lumberPos : MonoBehaviour
 {
     private int numberOfEnemies = 0;
     public GameObject prefab;
-    public float timeBetweenWaves = 60f;
+    private float timeBetweenWaves = 10f;
+    private float countdownShop = 5f;
     private float countdown = 3f;
     public Text WaveCountdown;
+
+    public static bool startNextRound; 
+
     void Start()
     {
-
+        //shop = GameObject.Find("Canvas/UI_SHOP");
     }
 
 
@@ -21,17 +25,30 @@ public class lumberPos : MonoBehaviour
     {
         if (countdown <= 0f)
         {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+            ShowHideShop.showShop = true;
+            Debug.Log("SHOW TRUE2");
+            if (startNextRound == true)
+            {
+                StartCoroutine(SpawnWave());
+                countdown = timeBetweenWaves;
+                ShowHideShop.showShop = false;
+                Debug.Log("SHOW FALSE");
+                startNextRound = false; 
+            }
 
         }
-        else
+        if (countdown > 0f)
         {
-  
+            countdown -= Time.deltaTime;
+            WaveCountdown.text = Mathf.Round(countdown).ToString();
+            if (countdown <= 0f)
+            {
+               // UI_SHOP.showShop = true;
+                Debug.Log("SHOW TRUE1");
+            }
         }
 
-        countdown -= Time.deltaTime;
-        WaveCountdown.text = Mathf.Round(countdown).ToString();
+
     }
 
     IEnumerator SpawnWave()

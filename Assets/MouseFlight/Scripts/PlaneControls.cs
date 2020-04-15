@@ -15,7 +15,7 @@ namespace MFlight.Demo
     /// for an example.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class Plane : MonoBehaviour
+    public class PlaneControls : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] private MouseFlightController controller = null;
@@ -42,6 +42,8 @@ namespace MFlight.Demo
 
         public float downthrust = 0;
         private float damage = 20f;
+        public static float maxSpeed = 200;
+        public static float damageModifier = 0;
 
         private bool rollOverride = false;
         private bool pitchOverride = false;
@@ -160,7 +162,7 @@ namespace MFlight.Demo
         }
         private void OnTriggerEnter(Collider other)
         {
-            damage = thrust;
+            damage = thrust/2 + damageModifier;
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
 
@@ -174,9 +176,9 @@ namespace MFlight.Demo
                                                 -turnTorque.z * roll) * forceMult,
                                     ForceMode.Force);
             rigid.AddForce(Vector3.down * downthrust * forceMult, ForceMode.Force);
-            if (rigid.velocity.magnitude > 200)
+            if (rigid.velocity.magnitude > maxSpeed)
             {
-                rigid.velocity = rigid.velocity.normalized * 200;
+                rigid.velocity = rigid.velocity.normalized * maxSpeed;
             }
         }
     }

@@ -10,7 +10,7 @@ public class UI_SHOP : MonoBehaviour
     private Transform container;
     private Transform shopItemTemplate;
     private IShopCustomer shopCustomer;
-    public static bool showShop = true;
+    //public static bool showShop = true;
 
     private void Awake()
     {
@@ -27,14 +27,14 @@ public class UI_SHOP : MonoBehaviour
     }
     public void Update()
     {
-        if (showShop == true)
+       /* if (showShop == true)
         {
             Show();
         }
-        else
+        else if (showShop == false)
         {
             Hide();
-        }
+        }*/
     }
     private void CreateUpgradeButton(Upgrades.ItemType itemType, string itemName, int itemCost, int positionIndex)
     {
@@ -43,20 +43,21 @@ public class UI_SHOP : MonoBehaviour
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
 
         float shopItemHeight = 80f;
-        shopItemRectTransform.anchoredPosition = new Vector2(125, 50-shopItemHeight * positionIndex);
+        shopItemRectTransform.anchoredPosition = new Vector2(450, 50-shopItemHeight * positionIndex);
 
         shopItemTransform.Find("textName").GetComponent<TextMeshProUGUI>().SetText(itemName);
         shopItemTransform.Find("textCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
 
-      /*  Button btn = shopItemRectTransform.GetComponent<Button>();
-        btn.onClick.AddListener(() => TryBuyItem(itemType));*/
+        Button btn = shopItemRectTransform.GetComponent<Button>();
+        btn.onClick.AddListener(() => TryBuyItem(itemType));
 
     }
+
     private void TryBuyItem(Upgrades.ItemType itemType)
     {
-        shopCustomer.BoughtItem(itemType);
-        Debug.Log("Clicked Button");
+        Debug.Log("Clicked Button" + itemType);
+        Upgrades.TrySpendMoney(itemType);
     }
     public void Show()
     {
@@ -66,4 +67,5 @@ public class UI_SHOP : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
 }
