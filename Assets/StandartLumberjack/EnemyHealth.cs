@@ -30,6 +30,8 @@ public class EnemyHealth : MonoBehaviour
             health = 0;
             alive = false;
             gameObject.SetActive(false);
+            lumberPos.enemiesAlive--;
+            Debug.Log("enemies alive: " + lumberPos.enemiesAlive);
             Score.score += 10;
 
             healthBar.fillAmount = health / startHealth;

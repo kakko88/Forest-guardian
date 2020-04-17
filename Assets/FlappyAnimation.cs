@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlappyAnimation : MonoBehaviour
 {
 
-    private Animation anim;
+    public Animation anim;
 
     public float animSpeed;
     public string nameOfAnimation;
