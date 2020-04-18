@@ -17,6 +17,8 @@ public class lumberPos : MonoBehaviour
     public Text WaveCountdown;
     public static bool startNextRound;
     private System.Action[] EnemySpawn;
+    private float timeDelay = 10f;
+    private float increment = 0.95f;
     
 
     void Start()
@@ -29,7 +31,7 @@ public class lumberPos : MonoBehaviour
 
     void Update()
     {
-        if (enemiesAlive == 0)
+        if (enemiesAlive <= 0)
         {
             ShowHideShop.showShop = true;
             //Debug.Log("SHOW TRUE2");
@@ -65,33 +67,34 @@ public class lumberPos : MonoBehaviour
         EnemySpawn[0] = SpawnEnemy;
         EnemySpawn[1] = SpawnFastEnemy;
         EnemySpawn[2] = SpawnBossEnemy;
-
+        enemiesAlive = numberOfEnemies;
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
             if (PlayerStats.Waves < 5)
             {
                 SpawnEnemy();
-                enemiesAlive = numberOfEnemies;
                 Debug.Log("enemies alive: " + enemiesAlive);
-                yield return new WaitForSeconds(10f);
+                
             }
             else if (PlayerStats.Waves >= 5 && PlayerStats.Waves < 10)
             {
-                EnemySpawn[Random.Range(0, 1)]();
-                enemiesAlive = numberOfEnemies;
+                EnemySpawn[Random.Range(0, 2)]();
                 Debug.Log("enemies alive: " + enemiesAlive);
-                yield return new WaitForSeconds(10f);
+                
             }
             else if (PlayerStats.Waves >= 10)
             {
                 EnemySpawn[Random.Range(0, EnemySpawn.Length)]();
-                enemiesAlive = numberOfEnemies;
                 Debug.Log("enemies alive: " + enemiesAlive);
-                yield return new WaitForSeconds(10f);
+                
             }
+            yield return new WaitForSeconds(timeDelay);
             
         }
+
+        timeDelay *= increment;
+        Debug.Log("Spawntime: " + timeDelay);
 
 
     }

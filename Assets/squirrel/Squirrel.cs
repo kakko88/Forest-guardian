@@ -90,7 +90,7 @@ public class Squirrel : MonoBehaviour
                 }
             }
 
-        
+       
 
         //fireCountDown -= Time.deltaTime;
         

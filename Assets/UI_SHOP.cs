@@ -23,7 +23,11 @@ public class UI_SHOP : MonoBehaviour
     {
         CreateUpgradeButton(Upgrades.ItemType.SpeedUpgrade, "Speed Upgrade", Upgrades.GetCost(Upgrades.ItemType.SpeedUpgrade), 0);
         CreateUpgradeButton(Upgrades.ItemType.BeakUpgrade, "Beak Upgrade", Upgrades.GetCost(Upgrades.ItemType.BeakUpgrade), 1);
-        CreateUpgradeButton(Upgrades.ItemType.PelletGun, "Pellet Gun Upgrade", Upgrades.GetCost(Upgrades.ItemType.PelletGun), 2);
+        CreateUpgradeButton(Upgrades.ItemType.SquirrelTree1, "Squirrel Tree1", Upgrades.GetCost(Upgrades.ItemType.SquirrelTree1), 2);
+        CreateUpgradeButton(Upgrades.ItemType.SquirrelTree2, "Squirrel Tree2", Upgrades.GetCost(Upgrades.ItemType.SquirrelTree2), 3);
+        CreateUpgradeButton(Upgrades.ItemType.SquirrelTree3, "Squirrel Tree3", Upgrades.GetCost(Upgrades.ItemType.SquirrelTree3), 4);
+        CreateUpgradeButton(Upgrades.ItemType.SquirrelTree4, "Squirrel Tree4", Upgrades.GetCost(Upgrades.ItemType.SquirrelTree4), 5);
+        CreateUpgradeButton(Upgrades.ItemType.SquirrelHome, "Squirrel HomeTree", Upgrades.GetCost(Upgrades.ItemType.SquirrelHome), 6);
     }
     public void Update()
     {

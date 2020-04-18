@@ -19,6 +19,7 @@ namespace MFlight.Demo
     public class PlaneControls : MonoBehaviour
     {
         public Animator animator;
+        public AudioSource birdScreatch;
 
         [Header("Components")]
         [SerializeField] private MouseFlightController controller = null;
@@ -61,6 +62,11 @@ namespace MFlight.Demo
                 Debug.LogError(name + ": Plane - Missing reference to MouseFlightController!");
         }
 
+        private void Start()
+        {
+            birdScreatch = GetComponent<AudioSource>();
+        }
+
         private void Update()
         {
             if (GameManager.GameIsOver)
@@ -94,7 +100,7 @@ namespace MFlight.Demo
                 RunAutopilot(controller.MouseAimPos, out autoYaw, out autoPitch, out autoRoll);
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                anim = GetComponent.animation<Animation>.Play();
+                GetComponent<Animation>().Play();
                 if (press == true)
                 {
                     thrust += 25f;
@@ -172,6 +178,7 @@ namespace MFlight.Demo
         {
             damage = thrust/2 + damageModifier;
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            birdScreatch.Play();
         }
 
         private void FixedUpdate()

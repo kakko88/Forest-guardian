@@ -9,31 +9,38 @@ public class EnemyHealth : MonoBehaviour
     private float health = 0f;
     public Image healthBar;
     public bool alive = true;
+    public int score;
+    public AudioSource hit;
     // Start is called before the first frame update
     void Start()
     {
         health = startHealth;
         alive = true;
+        hit = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float amount)
     {
+        hit.Play();
         if (!alive)
         {
             return;
         }
 
+        
         health -= amount;
+        
 
         if (health <= 0)
         {
+            hit.Play();
             health = 0;
             alive = false;
             gameObject.SetActive(false);
-            lumberPos.enemiesAlive--;
+            lumberPos.enemiesAlive -= 1;
             Debug.Log("enemies alive: " + lumberPos.enemiesAlive);
-            Score.score += 10;
-
+            Score.score += score;
+            
             healthBar.fillAmount = health / startHealth;
         }
 

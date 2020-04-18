@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class Node : MonoBehaviour
 {
-    public static int score = 1000;
+    private GameObject squirrel;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +16,5 @@ public class Score : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void OnGUI()
-    {
-        GUI.Box(new Rect(25, 25, 100, 25), "Score:  " + score.ToString());
     }
 }
