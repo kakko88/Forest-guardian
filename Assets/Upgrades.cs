@@ -31,7 +31,35 @@ public class Upgrades : MonoBehaviour
             Debug.Log(nodeCount);
             maxedbool = false;
         }
-        
+
+        if (nodeCount2 >= 9 && maxedbool == true)
+        {
+            StartCoroutine(MaxedOut(maxed, 2f));
+            Debug.Log(nodeCount);
+            maxedbool = false;
+        }
+
+        if (nodeCount3 >= 13 && maxedbool == true)
+        {
+            StartCoroutine(MaxedOut(maxed, 2f));
+            Debug.Log(nodeCount);
+            maxedbool = false;
+        }
+
+        if (nodeCount4 >= 17 && maxedbool == true)
+        {
+            StartCoroutine(MaxedOut(maxed, 2f));
+            Debug.Log(nodeCount);
+            maxedbool = false;
+        }
+
+        if (nodeCount5 >= 21 && maxedbool == true)
+        {
+            StartCoroutine(MaxedOut(maxed, 2f));
+            Debug.Log(nodeCount);
+            maxedbool = false;
+        }
+
     }
 
     
@@ -95,9 +123,11 @@ public static void buyUpgrade(ItemType itemType)
                     {
                         GameObject squirrelToBuild = BuildManager.instance.GetSquirrelToBuild();
                         squirrel = GameObject.Instantiate(squirrelToBuild, NodeList[nodeCount2].transform.position, NodeList[nodeCount2].transform.rotation);
-                        nodeCount2 += 1;
+                        
                        
                     }
+                    maxedbool = true;
+                    nodeCount2 += 1;
                     return;
                 }
             case ItemType.SquirrelTree3:
@@ -106,9 +136,11 @@ public static void buyUpgrade(ItemType itemType)
                     {
                         GameObject squirrelToBuild = BuildManager.instance.GetSquirrelToBuild();
                         squirrel = GameObject.Instantiate(squirrelToBuild, NodeList[nodeCount3].transform.position, NodeList[nodeCount3].transform.rotation);
-                        nodeCount3 += 1;
+                        
                         
                     }
+                    maxedbool = true;
+                    nodeCount3 += 1;
                     return;
                 }
             case ItemType.SquirrelTree4:
@@ -117,9 +149,11 @@ public static void buyUpgrade(ItemType itemType)
                     {
                         GameObject squirrelToBuild = BuildManager.instance.GetSquirrelToBuild();
                         squirrel = GameObject.Instantiate(squirrelToBuild, NodeList[nodeCount4].transform.position, NodeList[nodeCount4].transform.rotation);
-                        nodeCount4 += 1;
+                       
 
                     }
+                    maxedbool = true;
+                    nodeCount4 += 1;
                     return;
                 }
             case ItemType.SquirrelHome:
@@ -128,9 +162,11 @@ public static void buyUpgrade(ItemType itemType)
                     {
                         GameObject squirrelToBuild = BuildManager.instance.GetSquirrelToBuild();
                         squirrel = GameObject.Instantiate(squirrelToBuild, NodeList[nodeCount5].transform.position, NodeList[nodeCount5].transform.rotation);
-                        nodeCount5 += 1;
+                        
 
                     }
+                    maxedbool = true;
+                    nodeCount5 += 1;
                     return;
                 }
 
@@ -176,7 +212,7 @@ public static void buyUpgrade(ItemType itemType)
                 }
             case ItemType.SquirrelTree2:
                 {
-                    if (nodeCount <= 7)
+                    if (nodeCount2 <= 7)
                     {
                         return 200;
                     }
@@ -188,7 +224,7 @@ public static void buyUpgrade(ItemType itemType)
                 }
             case ItemType.SquirrelTree3:
                 {
-                    if (nodeCount <= 11)
+                    if (nodeCount3 <= 11)
                     {
                         return 200;
                     }
@@ -200,7 +236,7 @@ public static void buyUpgrade(ItemType itemType)
                 }
             case ItemType.SquirrelTree4:
                 {
-                    if (nodeCount <= 15)
+                    if (nodeCount4 <= 15)
                     {
                         return 200;
                     }
@@ -212,7 +248,7 @@ public static void buyUpgrade(ItemType itemType)
                 }
             case ItemType.SquirrelHome:
                 {
-                    if (nodeCount <= 19)
+                    if (nodeCount5 <= 19)
                     {
                         return 200;
                     }
