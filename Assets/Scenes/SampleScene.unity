@@ -2676,6 +2676,7 @@ GameObject:
   - component: {fileID: 202219315}
   - component: {fileID: 202219314}
   - component: {fileID: 202219317}
+  - component: {fileID: 202219318}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -2737,6 +2738,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squirrelPrefab: {fileID: 4915189317415378013, guid: c595f144aa1537d4abfbd3991a3a4e69,
     type: 3}
+--- !u!114 &202219318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202219313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d17e2c750e6b640b18abf1db702dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildManager: {fileID: 0}
 --- !u!1001 &210849532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18484,7 +18498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1434397882
 RectTransform:
   m_ObjectHideFlags: 0

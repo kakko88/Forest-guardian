@@ -11,17 +11,21 @@ public class EnemyHealth : MonoBehaviour
     public bool alive = true;
     public int score;
     public AudioSource hit;
+    public Renderer rend;
+    public Collider col;
     // Start is called before the first frame update
     void Start()
     {
         health = startHealth;
         alive = true;
         hit = GetComponent<AudioSource>();
+       
     }
 
     public void TakeDamage(float amount)
     {
         hit.Play();
+
         if (!alive)
         {
             return;
@@ -41,9 +45,9 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("enemies alive: " + lumberPos.enemiesAlive);
             Score.score += score;
             
-            healthBar.fillAmount = health / startHealth;
+            
         }
-
+        healthBar.fillAmount = health / startHealth;
     }
     // Update is called once per frame
     void Update()

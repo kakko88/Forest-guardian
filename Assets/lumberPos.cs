@@ -18,7 +18,7 @@ public class lumberPos : MonoBehaviour
     public static bool startNextRound;
     private System.Action[] EnemySpawn;
     private float timeDelay = 10f;
-    private float increment = 0.95f;
+    private float increment = 0.92f;
     
 
     void Start()

@@ -4,24 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Upgrades
+public class Upgrades : MonoBehaviour
 {
     private static GameObject squirrel;
     public BuildManager buildManager;
     public static GameObject nodes;
-    private static int nodeCount = 0;
-    private static int nodeCount2 = 4;
-    private static int nodeCount3 = 8;
-    private static int nodeCount4 = 12;
-    private static int nodeCount5 = 16;
+    public static int nodeCount = 0;
+    public static int nodeCount2 = 4;
+    public static int nodeCount3 = 8;
+    public static int nodeCount4 = 12;
+    public static int nodeCount5 = 16;
     public static GameObject maxed;
-    
+    private static bool maxedbool = false;
 
     void Start()
     {
-        maxed.SetActive(false);
         maxed = GameObject.Find("Maxed");
+        maxed.SetActive(false);
     }
+
+   void Update()
+    {
+       if (nodeCount >= 5 && maxedbool == true)
+        {
+            StartCoroutine(MaxedOut(maxed, 2f));
+            Debug.Log(nodeCount);
+            maxedbool = false;
+        }
+        
+    }
+
+    
+
 
     public enum ItemType
     {
@@ -67,10 +81,12 @@ public static void buyUpgrade(ItemType itemType)
                     {
                         GameObject squirrelToBuild = BuildManager.instance.GetSquirrelToBuild();
                         squirrel = GameObject.Instantiate(squirrelToBuild, NodeList[nodeCount].transform.position, NodeList[nodeCount].transform.rotation);
-                        nodeCount += 1;
+                        
                         
 
                     }
+                    maxedbool = true;
+                    nodeCount += 1;
                     return;
                 }
             case ItemType.SquirrelTree2:
@@ -122,7 +138,7 @@ public static void buyUpgrade(ItemType itemType)
 
     }
 
-    IEnumerator WaitForSec()
+     IEnumerator WaitForSec()
     {
         
         yield return new WaitForSeconds(3);
@@ -150,10 +166,10 @@ public static void buyUpgrade(ItemType itemType)
                     }
                     else
                     {
-                        maxed.SetActive(true);
                         
                         
-                        Debug.Log("Maxed out");
+                        
+                       
                         
                     }
                     return 0;
@@ -209,5 +225,13 @@ public static void buyUpgrade(ItemType itemType)
         }
     }
 
- 
+    IEnumerator MaxedOut(GameObject maxed, float delay)
+    {
+        maxed.SetActive(true);
+
+        yield return new WaitForSeconds(delay);
+
+        maxed.SetActive(false);
+    }
+
 }
