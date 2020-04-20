@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShowHideShop : MonoBehaviour
 {
     public static bool showShop;
+    public GameObject aim;
     void Start()
     {
         
@@ -16,10 +17,13 @@ public class ShowHideShop : MonoBehaviour
             if (showShop == false)
             {
                 child.gameObject.SetActive(false);
+                aim.gameObject.SetActive(true);
             }
             else if (showShop == true)
             {
+                aim.gameObject.SetActive(false);
                 child.gameObject.SetActive(true);
+                
             }
         }
 

@@ -4317,6 +4317,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -6686609054127237669, guid: 3581fcd2985ca5c468f368150dab74fa, type: 3}
+--- !u!1 &280911511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1105486575386632, guid: 16580bf03b0b2cd43a91d480153f3fa0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2005796252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &281204188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7852,7 +7858,7 @@ GameObject:
   - component: {fileID: 561441681}
   - component: {fileID: 561441683}
   - component: {fileID: 561441682}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12068,7 +12074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907290996}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12334,6 +12340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d242d0380d640de4fa90ebf3454085a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aim: {fileID: 280911511}
 --- !u!1001 &937661547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12438,7 +12445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 938938547}
   - component: {fileID: 938938548}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UIShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12582,7 +12589,7 @@ GameObject:
   - component: {fileID: 943807158}
   - component: {fileID: 943807160}
   - component: {fileID: 943807159}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: textName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15140,7 +15147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1143158206}
   - component: {fileID: 1143158207}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: shopItemTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15225,7 +15232,7 @@ GameObject:
   - component: {fileID: 1151398957}
   - component: {fileID: 1151398959}
   - component: {fileID: 1151398958}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15575,7 +15582,7 @@ GameObject:
   - component: {fileID: 1187066096}
   - component: {fileID: 1187066098}
   - component: {fileID: 1187066097}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17201,7 +17208,7 @@ GameObject:
   - component: {fileID: 1283418827}
   - component: {fileID: 1283418829}
   - component: {fileID: 1283418828}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23914,7 +23921,7 @@ GameObject:
   - component: {fileID: 1697416082}
   - component: {fileID: 1697416084}
   - component: {fileID: 1697416083}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NextRound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24425,7 +24432,7 @@ GameObject:
   - component: {fileID: 1712788900}
   - component: {fileID: 1712788902}
   - component: {fileID: 1712788901}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26554,7 +26561,7 @@ GameObject:
   - component: {fileID: 1868505277}
   - component: {fileID: 1868505279}
   - component: {fileID: 1868505278}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: textCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26960,7 +26967,7 @@ GameObject:
   - component: {fileID: 1890583018}
   - component: {fileID: 1890583020}
   - component: {fileID: 1890583019}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26975,7 +26982,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890583017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 938938547}
@@ -28772,6 +28779,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1699826897553592, guid: 16580bf03b0b2cd43a91d480153f3fa0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224020837011058284, guid: 16580bf03b0b2cd43a91d480153f3fa0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105486575386632, guid: 16580bf03b0b2cd43a91d480153f3fa0, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105486575386632, guid: 16580bf03b0b2cd43a91d480153f3fa0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
