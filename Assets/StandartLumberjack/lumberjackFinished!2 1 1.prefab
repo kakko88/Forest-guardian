@@ -1563,7 +1563,7 @@ MonoBehaviour:
   HomeLayer:
     serializedVersion: 2
     m_Bits: 0
-  attackDMG: 100
+  attackDMG: 5
   target: {fileID: 0}
   towerTag: Tower
   tree1: {fileID: 0}
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5561cbb08ec75d54d805caf92f5e0497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 1150
+  startHealth: 150
   healthBar: {fileID: 2294818091342712089}
   alive: 1
   score: 10
