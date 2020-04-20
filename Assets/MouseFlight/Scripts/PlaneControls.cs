@@ -119,7 +119,7 @@ namespace MFlight.Demo
 
             thrust = Mathf.Clamp(thrust, 2f, 100f);
             downthrust = thrust.Remap(2f, 100f, 20f, 0f);
-            if (transform.localPosition.y <= 215f)
+            if (transform.localPosition.y <= 30f)
             {
                 downthrust = 0f;
             }
@@ -186,6 +186,7 @@ namespace MFlight.Demo
             // Ultra simple flight where the plane just gets pushed forward and manipulated
             // with torques to turn.
             rigid.AddRelativeForce(Vector3.forward * thrust * forceMult, ForceMode.Force);
+            rigid.AddForce(Vector3.down * downthrust * forceMult, ForceMode.Force);
             rigid.AddRelativeTorque(new Vector3(turnTorque.x * pitch,
                                                 turnTorque.y * yaw,
                                                 -turnTorque.z * roll) * forceMult,

@@ -22,7 +22,7 @@ public class NextRoundBtn : MonoBehaviour
     public void BeginNextRound()
     {
         birdObject = GameObject.Find("bird");
-        birdObject.transform.position = new Vector3(-7.18f, 514.5f, -5.68f);
+        //birdObject.transform.position = new Vector3(-7.18f, 514.5f, -5.68f);
         lumberPos.startNextRound = true;
 
 

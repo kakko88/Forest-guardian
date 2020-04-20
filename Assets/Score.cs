@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public static int score = 1000;
+    public static int score = 5000;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,6 @@ public class Score : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(25, 25, 100, 25), "Score:  " + score.ToString());
+        GUI.Box(new Rect(25, 25, 100, 25), "Coins:  " + score.ToString());
     }
 }
