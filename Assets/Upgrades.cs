@@ -276,7 +276,7 @@ public static void SetUpgradeLevel(ItemType itemType)
     {
         switch (itemType)
         {
-            default:
+            default: return;
             case ItemType.SpeedUpgrade: speedUpgradeLvl += 1;
                 return;
             case ItemType.BeakUpgrade: beakUpgradeLvl += 1;
