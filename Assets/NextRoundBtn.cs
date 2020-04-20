@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class NextRoundBtn : MonoBehaviour
 {
+    public GameObject birdObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,10 @@ public class NextRoundBtn : MonoBehaviour
     }
     public void BeginNextRound()
     {
-        lumberPos.startNextRound = true; 
+        birdObject = GameObject.Find("bird");
+        birdObject.transform.position = new Vector3(-7.18f, 514.5f, -5.68f);
+        lumberPos.startNextRound = true;
+
+
     }
 }

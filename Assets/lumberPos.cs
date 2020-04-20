@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class lumberPos : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class lumberPos : MonoBehaviour
     {
         if (countdown <= 0f)
         {
+
             ShowHideShop.showShop = true;
             Debug.Log("SHOW TRUE2");
             if (startNextRound == true)
@@ -38,6 +40,7 @@ public class lumberPos : MonoBehaviour
                 Debug.Log("SHOW FALSE");
                 startNextRound = false;
             }
+
 
         }
         if (countdown > 0f)
