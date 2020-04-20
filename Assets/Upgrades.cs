@@ -22,6 +22,11 @@ public class Upgrades : MonoBehaviour
     public static int nodeCount5 = 16;
     public static GameObject maxed;
     private static bool maxedbool = false;
+    private static bool maxedbool2 = false;
+    private static bool maxedbool3 = false;
+    private static bool maxedbool4 = false;
+    private static bool maxedbool5 = false;
+
 
     void Start()
     {
@@ -38,32 +43,32 @@ public class Upgrades : MonoBehaviour
             maxedbool = false;
         }
 
-        if (nodeCount2 >= 9 && maxedbool == true)
+        if (nodeCount2 >= 9 && maxedbool2 == true)
         {
             StartCoroutine(MaxedOut(maxed, 2f));
             Debug.Log(nodeCount);
-            maxedbool = false;
+            maxedbool2 = false;
         }
 
-        if (nodeCount3 >= 13 && maxedbool == true)
+        if (nodeCount3 >= 13 && maxedbool3 == true)
         {
             StartCoroutine(MaxedOut(maxed, 2f));
             Debug.Log(nodeCount);
-            maxedbool = false;
+            maxedbool3 = false;
         }
 
-        if (nodeCount4 >= 17 && maxedbool == true)
+        if (nodeCount4 >= 17 && maxedbool4 == true)
         {
             StartCoroutine(MaxedOut(maxed, 2f));
             Debug.Log(nodeCount);
-            maxedbool = false;
+            maxedbool4 = false;
         }
 
-        if (nodeCount5 >= 21 && maxedbool == true)
+        if (nodeCount5 >= 21 && maxedbool5 == true)
         {
             StartCoroutine(MaxedOut(maxed, 2f));
             Debug.Log(nodeCount);
-            maxedbool = false;
+            maxedbool5 = false;
         }
 
     }
@@ -138,7 +143,7 @@ public static void buyUpgrade(ItemType itemType)
 
 
                     }
-                    maxedbool = true;
+                    maxedbool2 = true;
                     nodeCount2 += 1;
                     return;
                 }
@@ -151,7 +156,7 @@ public static void buyUpgrade(ItemType itemType)
 
 
                     }
-                    maxedbool = true;
+                    maxedbool3 = true;
                     nodeCount3 += 1;
                     return;
                 }
@@ -164,7 +169,7 @@ public static void buyUpgrade(ItemType itemType)
 
 
                     }
-                    maxedbool = true;
+                    maxedbool4 = true;
                     nodeCount4 += 1;
                     return;
                 }
@@ -177,7 +182,7 @@ public static void buyUpgrade(ItemType itemType)
 
 
                     }
-                    maxedbool = true;
+                    maxedbool5 = true;
                     nodeCount5 += 1;
                     return;
                 }
