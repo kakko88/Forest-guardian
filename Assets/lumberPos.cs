@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class lumberPos : MonoBehaviour
 {
     private int numberOfEnemies = 0;
+    public static int enemiesAlive = 0;
     public GameObject prefab;
     //private float timeBetweenWaves = 10f;
     private float countdownShop = 5f;
@@ -15,29 +16,33 @@ public class lumberPos : MonoBehaviour
     public float timeBetweenWaves = 60f;
     private float countdown = 3f;
     public Text WaveCountdown;
-
     public static bool startNextRound;
+    private System.Action[] EnemySpawn;
+    private float timeDelay = 10f;
+    private float increment = 0.92f;
+    
 
     void Start()
     {
         //shop = GameObject.Find("Canvas/UI_SHOP");
+        
     }
 
 
 
     void Update()
     {
-        if (countdown <= 0f)
+        if (enemiesAlive <= 0)
         {
 
             ShowHideShop.showShop = true;
-            Debug.Log("SHOW TRUE2");
+            //Debug.Log("SHOW TRUE2");
             if (startNextRound == true)
             {
                 StartCoroutine(SpawnWave());
                 countdown = timeBetweenWaves;
                 ShowHideShop.showShop = false;
-                Debug.Log("SHOW FALSE");
+                //Debug.Log("SHOW FALSE");
                 startNextRound = false;
             }
 
@@ -50,7 +55,7 @@ public class lumberPos : MonoBehaviour
             if (countdown <= 0f)
             {
                // UI_SHOP.showShop = true;
-                Debug.Log("SHOW TRUE1");
+                //Debug.Log("SHOW TRUE1");
             }
         }
 
@@ -59,14 +64,40 @@ public class lumberPos : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        numberOfEnemies++;
+        numberOfEnemies += 2;
         PlayerStats.Waves++;
+        EnemySpawn = new System.Action[3];
+        EnemySpawn[0] = SpawnEnemy;
+        EnemySpawn[1] = SpawnFastEnemy;
+        EnemySpawn[2] = SpawnBossEnemy;
+        enemiesAlive = numberOfEnemies;
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(10f);
+            if (PlayerStats.Waves < 5)
+            {
+                SpawnEnemy();
+                Debug.Log("enemies alive: " + enemiesAlive);
+                
+            }
+            else if (PlayerStats.Waves >= 5 && PlayerStats.Waves < 10)
+            {
+                EnemySpawn[Random.Range(0, 2)]();
+                Debug.Log("enemies alive: " + enemiesAlive);
+                
+            }
+            else if (PlayerStats.Waves >= 10)
+            {
+                EnemySpawn[Random.Range(0, EnemySpawn.Length)]();
+                Debug.Log("enemies alive: " + enemiesAlive);
+                
+            }
+            yield return new WaitForSeconds(timeDelay);
+            
         }
+
+        timeDelay *= increment;
+        Debug.Log("Spawntime: " + timeDelay);
 
 
     }

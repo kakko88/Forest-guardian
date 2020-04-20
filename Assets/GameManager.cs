@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
     public static bool GameIsOver;
     public GameObject HomeTree;
     public GameObject GameOverUI;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         GameIsOver = false;
         HomeTree = GameObject.Find("Home tree");
+      
     }
 
     // Update is called once per frame
@@ -25,7 +27,15 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+
+       
+            
+         
+
+       
+       
     }
+
 
     void EndGame()
     {

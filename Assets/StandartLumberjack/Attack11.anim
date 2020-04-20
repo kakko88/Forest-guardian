@@ -67048,10 +67048,10 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.9166667
-    functionName: Chop()
+    functionName: Chop
     data: 
     objectReferenceParameter: {fileID: 7852371141141471210, guid: 354c07f47d4db454699f2677a60c5d10,
       type: 3}
-    floatParameter: 22
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
